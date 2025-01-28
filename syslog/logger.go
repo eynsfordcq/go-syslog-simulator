@@ -3,18 +3,24 @@ package syslog
 import (
 	"fmt"
 	"log/syslog"
+
+	"github.com/eynsfordcq/go-syslog-simulator/config"
 )
 
 type Logger struct {
 	writer *syslog.Writer
+	config *config.Config
 }
 
-func NewLogger(host string, port int) (*Logger, error) {
-	writer, err := syslog.Dial("udp", fmt.Sprintf("%s:%d", host, port), syslog.LOG_INFO, "syslog-gen")
+func NewLogger(cfg *config.Config) (*Logger, error) {
+	writer, err := syslog.Dial("udp", fmt.Sprintf("%s:%d", cfg.Host, cfg.Port), syslog.LOG_INFO, "syslog-gen")
 	if err != nil {
 		return nil, fmt.Errorf("failed to connect to syslog host: %v", err)
 	}
-	return &Logger{writer: writer}, nil
+	return &Logger{
+		writer: writer,
+		config: cfg,
+	}, nil
 }
 
 func (l *Logger) Close() {

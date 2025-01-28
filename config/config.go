@@ -13,9 +13,9 @@ type Config struct {
 	Tags               []string `json:"tags"`
 	SyslogLevels       []string `json:"syslogLevels"`
 	SampleLogs         []string `json:"sampleLogs"`
-	RequestsPerSecond  int      `json:"requestsPerSecond"`
-	Host               string   `json:"host"`
-	Port               int      `json:"port"`
+	RequestsPerSecond  int
+	Host               string
+	Port               int
 	ParsedSyslogLevels []syslog.Priority
 }
 
