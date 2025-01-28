@@ -1,0 +1,14 @@
+{
+    "hostname": "host",
+    "domainName": ".example.com",
+    "tags": ["kernel", "go", "ids", "ips"],
+    "syslogLevels": ["LOG_INFO", "LOG_ERR", "LOG_WARNING", "LOG_CRIT"],
+    "sampleLogs": [
+        "test 1",
+        "test 2",
+        "test 3"
+    ],
+    "requestsPerSecond": 1,
+    "host": "127.0.0.1",
+    "port": 514
+}
